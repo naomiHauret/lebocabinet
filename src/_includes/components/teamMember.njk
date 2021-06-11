@@ -1,0 +1,21 @@
+{%- from "components/cta.njk" import cta -%}
+
+{% macro teamMember(isDoctor, data) %}
+  <article class='flex space-x-4 md:space-x-0 md:space-y-4 md:flex-col md:items-center'>
+    <div class="{% if isDoctor %}h-80 w-80 {% endif %} md:h-150 md:w-150">
+      <picture class='w-full h-full rounded-full overflow-hidden'>
+        <source media="(max-width: 575px)" srcset="{{ data.picture.url}}">
+        <source media="((min-width: 576px) and (max-width: 1023px))" srcset="{{data.picture.md.url}}">
+        <source media="(min-width: 1024px)" srcset="{{data.picture.lg.url}}">
+        <img class='w-full h-full object-cover' height='{{data.picture.dimensions.height}}' width='{{data.picture.dimensions.width}}' loading='lazy' src="{{data.picture.url}}" alt="">
+      </picture>
+    </div>
+    <div class='paragraph xs:text-center'>
+      <p class='font-sbold xs:mb-3'>{{data.display_name}}</p>
+      {% asHtml data.biography %}
+      {% if isDoctor %}
+        {{ cta(data.cta_label, data.cta_url.url, 'inline-flex mt-3 mx-auto')}}
+      {% endif %}
+    </div>
+  </article>
+{% endmacro %}

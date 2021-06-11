@@ -1,0 +1,104 @@
+/*
+  Base styles
+*/
+
+*,
+*::before,
+*::after {
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+}
+
+html {
+  @apply text-px subpixel-antialiased overflow-x-hidden;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
+}
+
+body {
+  @apply flex flex-col min-h-screen font-body;
+  font-size: 1rem;
+}
+
+a {
+  @apply focus:outline-none;
+  background-color: transparent;
+  color: inherit;
+}
+
+a:not(.cta, .no-underline) {
+  @apply underline focus:no-underline hover:no-underline active:no-underline;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+body,
+blockquote,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre,
+ul,
+ol {
+  margin: 0;
+}
+
+fieldset,
+optgroup,
+button,
+ol,
+ul {
+  padding: 0;
+}
+
+button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

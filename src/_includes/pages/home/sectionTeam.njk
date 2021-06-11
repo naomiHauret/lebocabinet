@@ -1,0 +1,28 @@
+{%- from "components/teamMember.njk" import teamMember -%}
+
+<section class='pt-5 pb-7 sm:py-7 flex flex-col surface surface-primary'>
+  <div class='container'>
+    <h2 id="equipe" class='heading-1 text-center'>
+      {{ landing.section_team_title}}
+    </h2>
+    <div class='paragraph mb-5 xs:mb-7 sm:w-3/4 lg:w-1/2 xs:mx-auto accent text-center'>
+      {% asHtml landing.section_team_text %}
+    </div>
+    <div class='grid grid-cols-1 gap-y-6 divide-y-1 divide-neutral-100 divide-solid mt-4 lg:divide-x-1 lg:divide-y-0 lg:grid-cols-2 gap-x-6'>
+      <ul id="prendre-rendez-vous" class='col-span-1 flex items-center -mt-5 lg:py-5 lg:items-start justify-between md:justify-evenly flex-col space-y-6 md:space-y-0 md:flex-row '>
+        {% for data in landing.section_team_doctors_list %}
+          <li>
+            {{ teamMember(true, data) }}
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class='col-span-1 sr-only justify-between md:justify-evenly md:py-6 lg:pis-6 lg:py-5 md:not-sr-only md:flex md:space-y-0'>
+        {% for data in landing.section_team_admins_list %}
+          <li>
+            {{ teamMember(false, data) }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

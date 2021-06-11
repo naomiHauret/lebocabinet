@@ -1,0 +1,54 @@
+@layer components {
+  .surface .cta {
+    --color: var(--lebo-ui-surface);
+    --bg: var(--lebo-ui-accent);
+    --ring: var(--lebo-ui-accent);
+    --borderColor: transparent;
+    --tw-ring-color: var(--lebo-ui-accent);
+
+    background-color: var(--bg);
+    color: var(--color);
+    border-color: var(--borderColor);
+    @apply outline-none border-1 border-solid transition-all;
+
+    &:hover {
+      --bg: var(--lebo-ui-interactive-hover);
+    }
+    &:active {
+      --bg: var(--lebo-ui-interactive-active);
+    }
+    &:focus {
+      --bg: var(--lebo-ui-interactive-focus);
+    }
+    @media print {
+      display: hidden;
+    }
+  }
+
+  .surface-primary .cta {
+    --ring: var(--lebo-ui-surface);
+  }
+
+  .surface .cta--reverse {
+    --color: var(--lebo-ui-accent);
+    --bg: var(--lebo-ui-surface);
+    --ring: var(--lebo-ui-accent);
+    --borderColor: var(--lebo-ui-accent);
+
+    &:hover {
+      --bg: var(--lebo-ui-interactive-hover);
+      --color: var(--lebo-ui-surface);
+      --borderColor: transparent;
+    }
+    &:active {
+      --bg: var(--lebo-ui-interactive-active);
+      --color: var(--lebo-ui-surface);
+      --borderColor: transparent;
+    }
+    &:focus {
+      --bg: var(--lebo-ui-interactive-focus);
+      --color: var(--lebo-ui-surface);
+      --borderColor: transparent;
+    }
+  }
+}

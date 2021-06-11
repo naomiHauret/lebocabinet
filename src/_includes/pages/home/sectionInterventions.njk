@@ -1,0 +1,20 @@
+{%- from "components/intervention.njk" import intervention -%}
+{%- from "components/cta.njk" import cta -%}
+<section class='pt-5 pb-6 sm:py-7 flex flex-col surface surface-neutral-100'>
+  <div class='container'>
+    <h2 id="les-interventions" class='heading-1 text-center'>
+      {{ landing.section_interventions_title}}
+    </h2>
+    <div class='paragraph sm:w-3/4 lg:w-1/2 xs:mx-auto accent text-center'>
+      {% asHtml landing.section_interventions_text %}
+    </div>
+    <div class='space-y-5 mb-6 sm:mb-7 md:column-gap-8 lg:column-gap-10 md:column-2 mt-6 xs:mt-7 md:mt-8 paragraph'>
+    {% for data in landing.interventions_list %}
+      <div class='inside-avoid'>
+        {{ intervention(data) }}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  {{ cta(landing.section_interventions_cta_label, landing.section_interventions_cta_url.url, 'inline-flex mx-auto')}}
+</section>

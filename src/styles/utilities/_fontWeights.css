@@ -1,0 +1,29 @@
+.font-normal {
+  --lebo-ui-fontWeightSetting: theme('fontWeight.normal');
+  font-weight: unset !important;
+  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+}
+
+.font-medium {
+  --lebo-ui-fontWeightSetting: theme('fontWeight.medium');
+  font-weight: unset !important;
+  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+}
+
+.font-bold {
+  --lebo-ui-fontWeightSetting: theme('fontWeight.bold');
+  font-weight: unset !important;
+  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+}
+
+.font-sbold {
+  --lebo-ui-fontWeightSetting: theme('fontWeight.sbold');
+  font-weight: unset !important;
+  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+}
+
+.font-xbold {
+  --lebo-ui-fontWeightSetting: theme('fontWeight.xbold');
+  font-weight: unset !important;
+  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+}

@@ -1,0 +1,99 @@
+:root {
+  /*
+        -- Surface
+    */
+  --lebo-ui-surface: theme('colors.neutral.100');
+  --lebo-ui-text: theme('colors.neutral.200');
+  --lebo-ui-accent: theme('colors.green.100');
+
+  /*
+        -- Interactive
+    */
+  --lebo-ui-interactive: theme('colors.green.100');
+  --lebo-ui-interactive-hover: theme('colors.green.200');
+  --lebo-ui-interactive-active: theme('colors.green.300');
+  --lebo-ui-interactive-focus: theme('colors.green.300');
+}
+
+@layer components {
+  .surface {
+    background-color: var(--lebo-ui-surface);
+    color: var(--lebo-ui-text);
+  }
+
+  /*
+    Neutral 100
+*/
+  .surface-neutral-100 {
+    --lebo-ui-surface: theme('colors.neutral.100');
+    --lebo-ui-text: theme('colors.neutral.200');
+    --lebo-ui-accent: theme('colors.green.100');
+    --lebo-ui-interactive: theme('colors.green.100');
+    --lebo-ui-interactive-hover: theme('colors.green.200');
+    --lebo-ui-interactive-active: theme('colors.green.300');
+    --lebo-ui-interactive-focus: theme('colors.green.300');
+  }
+
+  /*
+    Neutral 200
+*/
+  .surface-neutral-200 {
+    --lebo-ui-surface: theme('colors.neutral.200');
+    --lebo-ui-text: theme('colors.neutral.100');
+    --lebo-ui-accent: theme('colors.neutral.100');
+    --lebo-ui-interactive: theme('colors.neutral.100');
+    --lebo-ui-interactive-hover: theme('colors.neutral.100');
+    --lebo-ui-interactive-active: theme('colors.neutral.100');
+    --lebo-ui-interactive-focus: theme('colors.neutral.100');
+  }
+
+  /*
+    Brand primary
+*/
+  .surface-primary {
+    --lebo-ui-surface: theme('colors.green.100');
+    --lebo-ui-text: theme('colors.neutral.100');
+    --lebo-ui-accent: theme('colors.neutral.100');
+    --lebo-ui-interactive: theme('colors.neutral.100');
+    --lebo-ui-interactive-hover: theme('colors.neutral.100');
+    --lebo-ui-interactive-active: theme('colors.neutral.100');
+    --lebo-ui-interactive-focus: theme('colors.neutral.100');
+  }
+
+  .surface .heading-1 {
+    color: var(--lebo-ui-accent);
+  }
+
+  .surface .heading-2 {
+    color: var(--lebo-ui-accent);
+  }
+
+  .surface .quote,
+  .surface .paragraph {
+    color: var(--lebo-ui-text);
+  }
+
+  .surface .quote_caption,
+  .surface .paragraph.accent {
+    color: var(--lebo-ui-accent);
+  }
+
+  .surface a:not(.cta) {
+    --color: var(--lebo-ui-interactive);
+    color: var(--color);
+    &:hover {
+      --color: var(--lebo-ui-interactive-hover);
+    }
+    &:active {
+      --color: var(--lebo-ui-interactive-active);
+    }
+    &:focus {
+      --color: var(--lebo-ui-interactive-focus);
+      @apply relative;
+      &::before {
+        content: ' ';
+        @apply w-full h-full bg-current opacity-10 block absolute top-0 left-0 z-hide;
+      }
+    }
+  }
+}

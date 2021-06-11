@@ -1,0 +1,19 @@
+{%- from "components/review.njk" import review -%}
+<section>
+  <h2 id="les-avis" class='heading-1 text-center'>
+    {{ landing.section_reviews_title}}
+  </h2>
+  <div class='paragraph text-center'>
+    {% asHtml landing.section_reviews_text %}
+  </div>
+  <section class='mt-6'>
+    <h3 class='sr-only'>Les derniers avis sur les docteurs Florence Bouffaut et Anne-Laure Lejeune</h3>
+    <ul class='space-y-4 xs:space-y-5 md:space-y-6'>
+      {% for data in landing.reviews %}
+        <li>
+          {{ review(data) }}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+</section>
