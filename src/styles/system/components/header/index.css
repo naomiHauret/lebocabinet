@@ -2,6 +2,14 @@ header.has-shadow {
   @apply filter drop-shadow-header;
 }
 
+.menu-fold[aria-expanded="true"] {
+  @apply translate-y-0;
+}
+
+.menu-fold[aria-expanded="false"] {
+  @apply -translate-y-full;
+}
+
 @-moz-document url-prefix() {
   header.has-shadow {
     @apply shadow-header filter-none;
