@@ -1,6 +1,6 @@
 @layer components {
   .cta {
-    @apply text-11 leading-xloose py-1 px-2 xs:py-2 xs:px-5 xs:text-16 focus:ring-opacity-25 focus:ring-4 rounded-full;
+    @apply text-11 leading-tight xs:leading-xloose py-1.5 px-2.5 xs:py-2 xs:px-5 xs:text-16 focus:ring-opacity-25 focus:ring-4 rounded-full;
     --lebo-ui-fontWeightSetting: theme('fontWeight.sbold');
     font-weight: unset;
     font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
