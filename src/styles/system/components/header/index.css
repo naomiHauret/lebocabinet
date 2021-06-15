@@ -2,11 +2,11 @@ header.has-shadow {
   @apply filter drop-shadow-header;
 }
 
-.menu-fold[aria-expanded="true"] {
+.menu-fold[aria-expanded='true'] {
   @apply translate-y-0;
 }
 
-.menu-fold[aria-expanded="false"] {
+.menu-fold[aria-expanded='false'] {
   @apply -translate-y-full;
 }
 
