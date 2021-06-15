@@ -77,7 +77,9 @@ module.exports = {
     borderWidth: {
       ...BORDER_WIDTHS,
     },
-    boxShadow: {},
+    boxShadow: {
+      ...SHADOWS,
+    },
     caretColor: {},
     contrast: {},
     container: {},
@@ -301,7 +303,7 @@ module.exports = {
       max: 'max-content',
       prose: '65ch',
       ...breakpoints(theme('screens')),
-      ...WIDTHS
+      ...WIDTHS,
     }),
     minHeight: {
       0: '0px',
