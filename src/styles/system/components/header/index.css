@@ -1,12 +1,12 @@
 header.has-shadow {
-    @apply filter drop-shadow-header;
+  @apply filter drop-shadow-header;
 }
 
 @-moz-document url-prefix() {
-    header.has-shadow {
-        @apply shadow-header filter-none;
-    }
-    header.has-shadow .header-logo {
-        @apply shadow-header;
-    }
+  header.has-shadow {
+    @apply shadow-header filter-none;
+  }
+  header.has-shadow .header-logo {
+    @apply shadow-header;
+  }
 }
