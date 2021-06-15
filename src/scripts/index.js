@@ -1,9 +1,6 @@
 import 'alpinejs'
-import 'leaflet/dist/leaflet.css'
-import 'glider-js/glider.min.css'
 import lazyInit from '@helpers/lazyInit'
 import initializeMap from '@components/leaflet-map'
-import Glider from 'glider-js/glider'
 
 // Initialize OpenStreetMap/Leaflet map when in viewport
 const mapElement = document.querySelector('#clinic-map')
