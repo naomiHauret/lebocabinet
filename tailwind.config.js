@@ -290,6 +290,7 @@ module.exports = {
       ...HEIGHTS,
       full: '100%',
       screen: '100vh',
+      ...HEIGHTS,
     }),
     maxWidth: (theme, { breakpoints }) => ({
       none: 'none',
@@ -299,6 +300,7 @@ module.exports = {
       max: 'max-content',
       prose: '65ch',
       ...breakpoints(theme('screens')),
+      ...WIDTHS
     }),
     minHeight: {
       0: '0px',

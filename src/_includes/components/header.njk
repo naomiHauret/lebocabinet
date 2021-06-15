@@ -21,63 +21,63 @@
     url: '#les-avis'
   }
 ] %}
-<header x-data="{ showShadow: false }" :class="{ 'filter drop-shadow-header' : showShadow }"
-     @scroll.window="showShadow = (window.pageYOffset > 20) ? true : false" class='header transition-all md:max-h-90 z-header sticky top-0 left-0 w-full md:py-0 py-3 surface surface-neutral-100'>
-  <nav class='sr-only' aria-label='Navigation principale'>
-    <ul>
-      {% for item in mainNavItems %}
+<header 
+  x-data="{ showShadow: false }" :class="{ '' : showShadow }"
+  @scroll.window="showShadow = (window.pageYOffset > 20) ? true : false" class='header transition-all md:max-h-90 z-header sticky top-0 left-0 w-full md:py-0 py-3 surface surface-neutral-100'>
+  <div class='relative'>
+    <nav class='sr-only' aria-label='Navigation principale'>
+      <ul>
+        {% for item in mainNavItems %}
+          <li>
+            <a href="{{item.url}}">
+              {{item.name}}
+            </a>
+          </li>
+        {% endfor %}
         <li>
-          <a href="{{item.url}}">
-            {{item.name}}
+          <a href='#prendre-rendez-vous'>
+            {{landing.navigation_menu_cta_label}}
           </a>
         </li>
-      {% endfor %}
-      <li>
-        <a href='#prendre-rendez-vous'>
-          {{landing.navigation_menu_cta_label}}
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <div class='container flex'>
-    <a href='/' class='flex-shrink-0 md:mie-8'>
-      <picture class='w-full h-full'>
-        <source media="(max-width: 575px)" srcset="{{ landing.header_logo.url}}">
-        <source media="((min-width: 576px) and (max-width: 1023px))" srcset="{{landing.header_logo.xs.url}}">
-        <source media="(min-width: 1024px)" srcset="{{landing.header_logo.lg.url}}">
-        <img class='w-full h-auto' loading='lazy' height='{{landing.header_logo.dimensions.height}}' width='{{landing.header_logo.dimensions.width}}' src="{{landing.header_logo.url}}" alt="">
-      </picture>
-      <span class='sr-only'>LeBo Cabinet</span>
-    </a>
-    <nav x-data="{isOpen : false}" class='flex md:max-h-90 md:py-3 lg:py-5 flex-grow justify-between items-center' aria-hidden='true'>
-      <div 
-       @keydown.escape="isOpen = false" 
-        x-show.transition="true"
-        class='w-full overflow-y-auto min-h-screen top-0 left-0 surface surface-neutral md:bg-transparent absolute md:w-auto md:min-h-unset md:static md:block md:flex-shrink-0' 
-        :class="{ 'hidden': !isOpen, 'block': isOpen }"
-      >
-        <div class='pt-3 container relative flex md:hidden'>
-          <span class='heading-1 mx-auto'>Menu</span>
-          <button type='button' @click="isOpen = !isOpen" class='cta absolute inline-end-3 top-3 cta--reverse mis-auto'>
-            Retour
-          </button>
-        </div>
-        <ul
-          class='flex overflow-hidden flex-col items-center pt-7 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:justify-evenly md:space-x-6'>
-          
-          {% for item in mainNavItems %}
-            <li>
-              <a @click="isOpen = false" class='font-sbold text-15 uppercase underline md:no-underline md:normal-case md:text-14 no-underline' href="{{item.url}}">
-                {{item.name}}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {{ cta(landing.navigation_menu_cta_label, '#prendre-rendez-vous', 'flex-shrink-0 inline-flex mx-auto md:mx-0')}}
-      <button type='button' @click="isOpen = !isOpen" class='cta cta--reverse md:hidden'>
-        Menu
-      </button>
+      </ul>
     </nav>
+    <div class='container flex'>
+      <a href='/' class='flex-shrink-0 md:mie-8 w-35 xs:w-70 md:w-120 h-35 xs:h-70 md:h-120 max-w-35 xs:max-w-70 md:max-w-120'>
+          <svg aria-hidden='true' class='w-full h-full'>       
+            <image class='w-full' xlink:href="{{ landing.header_logo.url}}" />    
+          </svg>
+        <span class='sr-only'>LeBo Cabinet</span>
+      </a>
+      <nav x-data="{isOpen : false}" class='flex md:max-h-90 md:py-3 lg:py-5 flex-grow justify-between items-center' aria-hidden='true'>
+        <div 
+        @keydown.escape="isOpen = false" 
+          x-show.transition="true"
+          class='w-full overflow-y-auto min-h-screen top-0 left-0 surface surface-neutral md:bg-transparent absolute md:w-auto md:min-h-unset md:static md:block md:flex-shrink-0' 
+          :class="{ 'hidden': !isOpen, 'block': isOpen }"
+        >
+          <div class='pt-3 container relative flex md:hidden'>
+            <span class='heading-1 mx-auto'>Menu</span>
+            <button type='button' @click="isOpen = !isOpen" class='cta absolute inline-end-3 top-3 cta--reverse mis-auto'>
+              Retour
+            </button>
+          </div>
+          <ul
+            class='flex overflow-hidden flex-col items-center pt-7 space-y-6 md:pt-0 md:space-y-0 md:flex-row md:justify-evenly md:space-x-6'>
+            
+            {% for item in mainNavItems %}
+              <li>
+                <a @click="isOpen = false" class='font-sbold text-15 uppercase underline md:no-underline md:normal-case md:text-14 no-underline' href="{{item.url}}">
+                  {{item.name}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {{ cta(landing.navigation_menu_cta_label, '#prendre-rendez-vous', 'flex-shrink-0 inline-flex mx-auto md:mx-0')}}
+        <button type='button' @click="isOpen = !isOpen" class='cta cta--reverse md:hidden'>
+          Menu
+        </button>
+      </nav>
+    </div>
   </div>
 </header>
