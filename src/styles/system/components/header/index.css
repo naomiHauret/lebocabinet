@@ -7,6 +7,6 @@ header.has-shadow {
     @apply shadow-header filter-none;
   }
   header.has-shadow .header-logo {
-    @apply shadow-header;
+    @apply md:shadow-header;
   }
 }
