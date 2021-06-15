@@ -1,12 +1,10 @@
 const {
   BREAKPOINTS,
-  BRANDS,
   SHADOWS,
   BORDER_WIDTHS,
   RADII,
   LINE_HEIGHTS,
   FONT_FAMILIES,
-  FONT_WEIGHTS,
   FONT_SIZES,
   SPACINGS,
   WIDTHS,
@@ -38,7 +36,6 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      ...BRANDS,
     },
     spacing: {
       ...SPACINGS,
@@ -117,7 +114,7 @@ module.exports = {
     },
     fontFamily: { ...FONT_FAMILIES },
     fontSize: { ...FONT_SIZES, px: `${FONT_SIZES.base}px` },
-    fontWeight: { ...FONT_WEIGHTS },
+    fontWeight: {},
     gap: (theme) => theme('spacing'),
     gradientColorStops: (theme) => theme('colors'),
     gridAutoColumns: {

@@ -50,10 +50,10 @@
       </a>
       <nav x-data="{isOpen : false}" class='flex md:max-h-90 md:py-3 lg:py-5 flex-grow justify-between items-center' aria-hidden='true'>
         <div 
-        @keydown.escape="isOpen = false" 
+          @keydown.escape="isOpen = false" 
           x-show.transition="true"
-          class='w-full overflow-y-auto min-h-screen top-0 left-0 surface surface-neutral md:bg-transparent absolute md:w-auto md:min-h-unset md:static md:block md:flex-shrink-0' 
-          :class="{ 'hidden': !isOpen, 'block': isOpen }"
+          class='overflow-y-auto min-h-screen top-0 left-0 surface surface-neutral-100 md:bg-transparent absolute md:w-auto md:min-h-unset md:static md:block md:flex-shrink-0' 
+          :class="{ 'hidden': !isOpen, 'block z-sticky w-full h-full': isOpen }"
         >
           <div class='pt-3 container relative flex md:hidden'>
             <span class='heading-1 mx-auto'>Menu</span>

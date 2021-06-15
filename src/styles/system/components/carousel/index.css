@@ -4,7 +4,8 @@
   }
 
   .carousel_dots .glider-dot {
-    @apply w-3 h-3 bg-neutral-100 bg-opacity-25 p-0 m-0;
+    background-color: rgba(var(--lebo-ui-accent), var(--tw-bg-opacity));
+    @apply w-3 h-3 bg-opacity-25 p-0 m-0;
   }
 
   .carousel_dots .glider-dot.active {

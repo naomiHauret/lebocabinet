@@ -9,11 +9,8 @@
   }
 
   .heading-1 {
+    --lebo-ui-fontWeightSetting: var(--lebo-ui-fontWeight-xbold);
     @apply mb-2 text-15 xs:mb-4 xs:text-26;
-    font-weight: unset !important;
-    --lebo-ui-fontWeightSetting: theme('fontWeight.xbold');
-    font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
-
     @media print {
       font-size: calc(26 * var(--printPtMultiplier));
       margin-bottom: calc(20 * var(--printPtMultiplier));
@@ -21,11 +18,8 @@
   }
 
   .heading-2 {
+    --lebo-ui-fontWeightSetting: var(--lebo-ui-fontWeight-bold);
     @apply text-15 xs:text-18 mb-1;
-    --lebo-ui-fontWeightSetting: theme('fontWeight.bold');
-    font-weight: unset !important;
-    font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
-
     @media print {
       font-size: calc(18 * var(--printPtMultiplier));
     }
@@ -33,9 +27,7 @@
 
   .quote,
   .paragraph {
-    --lebo-ui-fontWeightSetting: theme('fontWeight.normal');
-    font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
-    font-weight: unset !important;
+    --lebo-ui-fontWeightSetting: var(--lebo-ui-fontWeight-normal);
     @apply text-11 xs:text-14 leading-xloose xs:leading-loose;
     @media print {
       font-size: calc(14 * var(--printPtMultiplier));
@@ -44,9 +36,7 @@
 
   .quote blockquote {
     @apply italic;
-    font-weight: unset !important;
-    --lebo-ui-fontWeightSetting: theme('fontWeight.medium');
-    font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+    --lebo-ui-fontWeightSetting: var(--lebo-ui-fontWeight-medium);
   }
 
   .paragraph ul {

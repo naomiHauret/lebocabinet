@@ -8,6 +8,7 @@
   border-width: 0;
   border-style: solid;
   box-sizing: border-box;
+  font-weight: unset;
   font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
 }
 
@@ -45,9 +46,7 @@ button {
 }
 
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type='button']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -57,22 +56,13 @@ blockquote,
 h1,
 h2,
 h3,
-h4,
-h5,
-h6,
-hr,
 figure,
 p,
-pre,
-ul,
 ol {
   margin: 0;
 }
 
-fieldset,
-optgroup,
 button,
-ol,
 ul {
   padding: 0;
 }
@@ -83,13 +73,8 @@ button::-moz-focus-inner {
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
   @apply font-heading;
-  font-size: inherit;
-  font-weight: inherit;
 }
 
 img,

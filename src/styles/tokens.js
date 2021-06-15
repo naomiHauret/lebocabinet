@@ -22,21 +22,6 @@ const BREAKPOINTS = {
   '4xl': 1920,
 }
 
-// Colors
-// - for text, backgrounds, borders, fill, strokes
-
-const BRANDS = {
-  neutral: {
-    100: '#ffffff',
-    200: '#1A1A1A',
-  },
-  green: {
-    100: '#2197A9',
-    200: '#197988',
-    300: '#146673',
-  },
-}
-
 // Typography
 // - font sizes
 const FONT_SIZES = {
@@ -48,15 +33,6 @@ const FONT_SIZES = {
   16: 16,
   18: 18,
   26: 26,
-}
-
-// - font weights
-const FONT_WEIGHTS = {
-  normal: 400,
-  medium: 500,
-  sbold: 600,
-  bold: 700,
-  xbold: 800,
 }
 
 // - font families
@@ -206,13 +182,11 @@ Object.keys(BREAKPOINTS).map((size) => {
 // ES5 Syntax as ES6 is not supported in Tailwind build
 module.exports = {
   BREAKPOINTS: breakpoints,
-  BRANDS,
   SHADOWS,
   BORDER_WIDTHS: borderWidths,
   RADII: radiusSizes,
   LINE_HEIGHTS,
   FONT_FAMILIES,
-  FONT_WEIGHTS,
   FONT_SIZES: {
     ...fontSizes,
     base: baseFontSize,
