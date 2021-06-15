@@ -24,13 +24,12 @@ body {
 }
 
 a {
-  @apply focus:outline-none;
   background-color: transparent;
   color: inherit;
 }
 
 a:not(.cta, .no-underline) {
-  @apply underline focus:no-underline hover:no-underline active:no-underline;
+  @apply underline hover:no-underline active:no-underline;
 }
 
 button {
