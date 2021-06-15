@@ -88,12 +88,7 @@
       --color: var(--lebo-ui-interactive-active);
     }
     &:focus {
-      --color: var(--lebo-ui-interactive-focus);
-      @apply relative;
-      &::before {
-        content: ' ';
-        @apply w-full h-full bg-current opacity-10 block absolute top-0 left-0 z-hide;
-      }
+      --color: var(--lebo-ui-interactive);
     }
   }
 }

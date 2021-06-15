@@ -2,9 +2,7 @@
   .surface .cta {
     --color: var(--lebo-ui-surface);
     --bg: var(--lebo-ui-accent);
-    --ring: var(--lebo-ui-accent);
     --borderColor: transparent;
-    --tw-ring-color: var(--lebo-ui-accent);
 
     background-color: var(--bg);
     color: var(--color);
@@ -25,14 +23,9 @@
     }
   }
 
-  .surface-primary .cta {
-    --ring: var(--lebo-ui-surface);
-  }
-
   .surface .cta--reverse {
     --color: var(--lebo-ui-accent);
     --bg: var(--lebo-ui-surface);
-    --ring: var(--lebo-ui-accent);
     --borderColor: var(--lebo-ui-accent);
 
     &:hover {
