@@ -9,12 +9,10 @@
         </picture>
         <span class='sr-only'>Clinique Brétéché</span>
       </a>
-      <a href='/'>
-        <picture class='w-full h-full'>
-          <source media="(max-width: 1023px)" srcset="{{ landing.footer_logo.url}}">
-          <source media="(min-width: 1024px)" srcset="{{landing.footer_logo.lg.url}}">
-          <img class='w-full h-auto' height='{{landing.footer_logo.dimensions.height}}' width='{{landing.footer_logo.dimensions.width}}' loading='lazy' src="{{landing.footer_logo.url}}" alt="">
-        </picture>
+      <a class='max-w-50 md:max-w-90' href='/'>
+        <svg aria-hidden='true' class='w-50 md:w-90 h-50 md:h-90'>       
+          <image class='w-full' xlink:href="{{ landing.header_logo.url}}" />    
+        </svg>
         <span class='sr-only'>LeBo Cabinet - cabinet des docteurs Florence Lejeune et Anne-Laure Bouffaut</span>
       </a>
     </div>
