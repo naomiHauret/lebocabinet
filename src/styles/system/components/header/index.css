@@ -7,7 +7,7 @@ header.has-shadow {
 }
 
 .menu-fold[aria-expanded='false'] {
-  @apply -translate-y-full;
+  @apply -translate-y-full md:translate-y-0;
 }
 
 @-moz-document url-prefix() {
