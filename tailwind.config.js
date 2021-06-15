@@ -77,7 +77,9 @@ module.exports = {
     borderWidth: {
       ...BORDER_WIDTHS,
     },
-    boxShadow: {},
+    boxShadow: {
+      ...SHADOWS,
+    },
     caretColor: {},
     contrast: {},
     container: {},
