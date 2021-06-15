@@ -21,7 +21,7 @@
     url: '#les-avis'
   }
 ] %}
-<header x-data="{ showShadow: false }" :class="{ 'shadow-header' : showShadow }"
+<header x-data="{ showShadow: false }" :class="{ 'filter drop-shadow-header' : showShadow }"
      @scroll.window="showShadow = (window.pageYOffset > 20) ? true : false" class='header transition-all md:max-h-90 z-header sticky top-0 left-0 w-full md:py-0 py-3 surface surface-neutral-100'>
   <nav class='sr-only' aria-label='Navigation principale'>
     <ul>
