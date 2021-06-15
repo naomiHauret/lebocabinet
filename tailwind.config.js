@@ -488,6 +488,7 @@ module.exports = {
       screen: '100vw',
       min: 'min-content',
       max: 'max-content',
+      ...WIDTHS,
     }),
     zIndex: {
       ...Z_INDEX,
