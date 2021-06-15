@@ -1,94 +1,99 @@
 :root {
   /*
-        -- Surface
-    */
-  --lebo-ui-surface: theme('colors.neutral.100');
-  --lebo-ui-text: theme('colors.neutral.200');
-  --lebo-ui-accent: theme('colors.green.100');
+Utilities
+*/
+  --tw-text-opacity: 1;
+  --tw-bg-opacity: 1;
+  --tw-border-opacity: 1;
+  --lebo-ui-bg-opacity: 1;
+  --lebo-ui-color-opacity: 1;
+  --lebo-ui-border-opacity: 1;
+  --lebo-ui-ring-opacity: 1;
 
   /*
-        -- Interactive
-    */
-  --lebo-ui-interactive: theme('colors.green.100');
-  --lebo-ui-interactive-hover: theme('colors.green.200');
-  --lebo-ui-interactive-active: theme('colors.green.300');
-  --lebo-ui-interactive-focus: theme('colors.green.300');
+Palette
+*/
+  --lebo-ui-palette-neutral_100: 255, 255, 255;
+  --lebo-ui-palette-neutral_200: 26, 26, 26;
+  --lebo-ui-palette-green_100: 33, 151, 169;
+  --lebo-ui-palette-green_200: 25, 121, 136;
+  --lebo-ui-palette-green_300: 20, 102, 115;
+
+  /*
+    Typography
+  */
+  --lebo-ui-fontWeight-normal: 400;
+  --lebo-ui-fontWeight-medium: 500;
+  --lebo-ui-fontWeight-sbold: 600;
+  --lebo-ui-fontWeight-bold: 700;
+  --lebo-ui-fontWeight-xbold: 800;
+  --lebo-ui-fontWeightSetting: var(--lebo-ui-fontWeight-normal);
 }
 
-@layer components {
-  .surface {
-    background-color: var(--lebo-ui-surface);
-    color: var(--lebo-ui-text);
-  }
-
-  /*
-    Neutral 100
-*/
+@variants responsive {
+  /* 
+    Theme variants
+  */
   .surface-neutral-100 {
-    --lebo-ui-surface: theme('colors.neutral.100');
-    --lebo-ui-text: theme('colors.neutral.200');
-    --lebo-ui-accent: theme('colors.green.100');
-    --lebo-ui-interactive: theme('colors.green.100');
-    --lebo-ui-interactive-hover: theme('colors.green.200');
-    --lebo-ui-interactive-active: theme('colors.green.300');
-    --lebo-ui-interactive-focus: theme('colors.green.300');
+    --lebo-ui-surfaceBgColor: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-textColor: var(--lebo-ui-palette-neutral_200);
+    --lebo-ui-accent: var(--lebo-ui-palette-green_100);
+    --lebo-ui-interactive: var(--lebo-ui-palette-green_100);
+    --lebo-ui-interactive-hover: var(--lebo-ui-palette-green_200);
+    --lebo-ui-interactive-active: var(--lebo-ui-palette-green_300);
+    --lebo-ui-interactive-focus: var(--lebo-ui-palette-green_100);
   }
 
-  /*
-    Neutral 200
-*/
   .surface-neutral-200 {
-    --lebo-ui-surface: theme('colors.neutral.200');
-    --lebo-ui-text: theme('colors.neutral.100');
-    --lebo-ui-accent: theme('colors.neutral.100');
-    --lebo-ui-interactive: theme('colors.neutral.100');
-    --lebo-ui-interactive-hover: theme('colors.neutral.100');
-    --lebo-ui-interactive-active: theme('colors.neutral.100');
-    --lebo-ui-interactive-focus: theme('colors.neutral.100');
+    --lebo-ui-surfaceBgColor: var(--lebo-ui-palette-neutral_200);
+    --lebo-ui-textColor: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-accent: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-interactive: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-interactive-hover: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-interactive-active: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-interactive-focus: var(--lebo-ui-palette-neutral_100);
+  }
+
+  .surface-primary {
+    --lebo-ui-surfaceBgColor: var(--lebo-ui-palette-green_100);
+    --lebo-ui-textColor: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-accent: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-interactive: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-interactive-hover: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-interactive-active: var(--lebo-ui-palette-neutral_100);
+    --lebo-ui-interactive-focus: var(--lebo-ui-palette-neutral_100);
   }
 
   /*
-    Brand primary
-*/
-  .surface-primary {
-    --lebo-ui-surface: theme('colors.green.100');
-    --lebo-ui-text: theme('colors.neutral.100');
-    --lebo-ui-accent: theme('colors.neutral.100');
-    --lebo-ui-interactive: theme('colors.neutral.100');
-    --lebo-ui-interactive-hover: theme('colors.neutral.100');
-    --lebo-ui-interactive-active: theme('colors.neutral.100');
-    --lebo-ui-interactive-focus: theme('colors.neutral.100');
+    Theme implementation
+  */
+  .surface {
+    border-color: rgba(var(--lebo-ui-surfaceBorderColor), var(--tw-border-opacity));
+    background-color: rgba(var(--lebo-ui-surfaceBgColor), var(--tw-bg-opacity));
   }
 
-  .surface .heading-1 {
-    color: var(--lebo-ui-accent);
+  .surface * {
+    color: rgba(var(--lebo-ui-textColor), var(--tw-text-opacity));
   }
 
-  .surface .heading-2 {
-    color: var(--lebo-ui-accent);
-  }
-
-  .surface .quote,
-  .surface .paragraph {
-    color: var(--lebo-ui-text);
-  }
-
+  .surface .heading-1,
+  .surface .heading-2,
   .surface .quote_caption,
   .surface .paragraph.accent {
-    color: var(--lebo-ui-accent);
+    --lebo-ui-textColor: var(--lebo-ui-accent);
   }
 
   .surface a:not(.cta) {
-    --color: var(--lebo-ui-interactive);
-    color: var(--color);
+    --lebo-ui-textColor: var(--lebo-ui-interactive);
+
     &:hover {
-      --color: var(--lebo-ui-interactive-hover);
+      --lebo-ui-textColor: var(--lebo-ui-interactive-hover);
     }
     &:active {
-      --color: var(--lebo-ui-interactive-active);
+      --lebo-ui-textColor: var(--lebo-ui-interactive-active);
     }
     &:focus {
-      --color: var(--lebo-ui-interactive);
+      --lebo-ui-textColor: var(--lebo-ui-interactive);
     }
   }
 }

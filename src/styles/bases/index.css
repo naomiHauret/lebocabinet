@@ -8,7 +8,11 @@
   border-width: 0;
   border-style: solid;
   box-sizing: border-box;
-  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+  font-weight: var(--lebo-ui-fontWeightSetting);
+  @supports (font-variation-settings: normal) {
+    font-weight: unset;
+    font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+  }
 }
 
 html {
@@ -88,8 +92,6 @@ h4,
 h5,
 h6 {
   @apply font-heading;
-  font-size: inherit;
-  font-weight: inherit;
 }
 
 img,
