@@ -34,6 +34,7 @@ Palette
   /* 
     Theme variants
   */
+  .surface,
   .surface-neutral-100 {
     --lebo-ui-surfaceBgColor: var(--lebo-ui-palette-neutral_100);
     --lebo-ui-textColor: var(--lebo-ui-palette-neutral_200);

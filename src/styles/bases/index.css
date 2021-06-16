@@ -10,6 +10,7 @@
   box-sizing: border-box;
   font-weight: unset;
   font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+  transition: none;
 }
 
 html {

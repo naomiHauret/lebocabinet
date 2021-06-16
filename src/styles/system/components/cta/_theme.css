@@ -8,7 +8,7 @@
     color: rgba(var(--color), var(--tw-text-opacity));
     border-color: rgba(var(--color), var(--tw-border-opacity, 0));
 
-    @apply outline-none border-1 border-solid transition-all;
+    @apply outline-none border-1 border-solid focus:transition-all active:transition-all hover:transition-all;
 
     &:hover {
       --bg: var(--lebo-ui-interactive-hover);
