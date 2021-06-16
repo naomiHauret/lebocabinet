@@ -4,12 +4,18 @@
     And thus avoid the offset
 */
 .anchor-offset {
-  @supports (-webkit-touch-callout: none) {
+  @supports (-webkit-touch-callout: none) { 
     margin-top: calc(var(--headerHeight) * -1);
     padding-top: var(--headerHeight);
     background: red !important;
  }
- 
+ @media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+      margin-top: calc(var(--headerHeight) * -1);
+      padding-top: var(--headerHeight);
+      background: cyan !important;
+    }
+  }
   @supports not (scroll-padding-top: var(--headerHeight)) {
     margin-top: calc(var(--headerHeight) * -1);
     padding-top: var(--headerHeight);
