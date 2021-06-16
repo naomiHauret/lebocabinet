@@ -35,13 +35,19 @@ Palette
   --headerHeight: theme('spacing.10');
 
   @supports (-webkit-touch-callout: none) {
-    --headerHeight: 0;
+    --headerHeight: -72px;
   }
   @media (--screen-xs) {
     --headerHeight: theme('spacing.11');
   }
 
   
+}
+
+@supports (-webkit-touch-callout: none) {
+ header {
+   background: cyan !important;
+ }
 }
 
 @variants responsive {
