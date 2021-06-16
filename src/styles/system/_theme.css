@@ -35,7 +35,7 @@ Palette
   --headerHeight: theme('spacing.10');
 
   @supports (-webkit-touch-callout: none) {
-    --headerHeight: 72px;
+    --headerHeight: 60px;
   }
   @media (--screen-xs) {
     --headerHeight: theme('spacing.11');
