@@ -7,5 +7,6 @@
   @supports not (scroll-padding-top: var(--headerHeight)) {
     margin-top: calc(var(--headerHeight) * -1);
     padding-top: var(--headerHeight);
+    color: cyan !important;
   }
 }
