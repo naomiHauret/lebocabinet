@@ -18,6 +18,7 @@ html {
   scroll-behavior: smooth;
   text-size-adjust: 100%;
   text-rendering: optimizelegibility;
+  scroll-padding-top: var(--headerHeight);
 }
 
 body {
