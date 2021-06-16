@@ -4,8 +4,14 @@
     And thus avoid the offset
 */
 .anchor-offset {
+  @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+    margin-top: calc(var(--headerHeight) * -1);
+    padding-top: var(--headerHeight);
+
+  }
   @supports not (scroll-padding-top: var(--headerHeight)) {
     margin-top: calc(var(--headerHeight) * -1);
     padding-top: var(--headerHeight);
+
   }
 }
