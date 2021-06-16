@@ -32,11 +32,16 @@ Palette
   /*
     Other
   */
-
   --headerHeight: theme('spacing.10');
+
+  @supports (-webkit-touch-callout: none) {
+    --headerHeight: 60px;
+  }
   @media (--screen-xs) {
     --headerHeight: theme('spacing.11');
   }
+
+  
 }
 
 @variants responsive {
