@@ -10,6 +10,7 @@
   box-sizing: border-box;
   font-weight: unset;
   font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+  transition: none;
 }
 
 html {
@@ -29,8 +30,7 @@ a {
   color: inherit;
 }
 
-a:not(.cta),
-a:not(.no-underline) {
+a:not(.cta, .no-underline) {
   @apply underline hover:no-underline active:no-underline;
 }
 
