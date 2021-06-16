@@ -37,6 +37,10 @@ Palette
   @media (--screen-xs) {
     --headerHeight: theme('spacing.11');
   }
+
+  @supports (-webkit-touch-callout: none) {
+    --headerHeight: calc(var(--headerHeight) * 2);
+  }
 }
 
 @variants responsive {
