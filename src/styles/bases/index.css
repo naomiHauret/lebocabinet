@@ -29,7 +29,8 @@ a {
   color: inherit;
 }
 
-a:not(.cta, .no-underline) {
+a:not(.cta),
+a:not(.no-underline) {
   @apply underline hover:no-underline active:no-underline;
 }
 
