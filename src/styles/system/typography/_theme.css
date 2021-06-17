@@ -51,14 +51,4 @@
   .paragraph strong {
     font-weight: inherit;
   }
-
-  .heading-1,
-  .heading-2,
-  .quote,
-  .paragraph {
-    @supports not (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
-      font-weight: var(--lebo-ui-fontWeightSetting);
-    }
-  }
-
 }
