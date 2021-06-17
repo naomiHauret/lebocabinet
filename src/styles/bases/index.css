@@ -8,11 +8,10 @@
   border-width: 0;
   border-style: solid;
   box-sizing: border-box;
-  font-weight: unset;
-  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+  font-weight: var(--lebo-ui-fontWeightSetting);
   transition: none;
-  @supports not (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
-      background: red;
+  @supports (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
+    font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
   }
 }
 
