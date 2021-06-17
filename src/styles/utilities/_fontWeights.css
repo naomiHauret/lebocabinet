@@ -7,16 +7,6 @@
   --lebo-ui-fontWeightSetting: var(--lebo-ui-fontWeight-normal);
 }
 
-.font-normal,
-.font-medium,
-.font-sbold,
-.font-bold,
-.font-xbold {
-  @supports not (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
-    font-weight: var(--lebo-ui-fontWeightSetting);
-  }
-}
-
 .font-normal {
   --lebo-ui-fontWeightSetting: var(--lebo-ui-fontWeight-normal);
 }
