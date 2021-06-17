@@ -12,7 +12,9 @@
       padding-top: var(--headerHeight);
     }
     @media(--screen-md) {
-      @apply mt-0 pt-0;  
+      scroll-padding-top: 0;
+      margin-top: calc(var(--headerHeight) * -1);
+      padding-top: var(--headerHeight);
     }
   }
   @supports not (scroll-padding-top: var(--headerHeight)) {
