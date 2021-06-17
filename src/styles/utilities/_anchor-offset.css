@@ -5,7 +5,7 @@
 */
 .anchor-offset {
   @media not all and (min-resolution: 0.001dpcm) {
-    background: cyan !important;
+    background: cyan;
     @supports (-webkit-appearance: none) {
       color: pink !important;
       margin-top: calc(var(--headerHeight) * -1);
@@ -17,6 +17,7 @@
     }
   }
   @supports not (scroll-padding-top: var(--headerHeight)) {
+    background: red;
     margin-top: calc(var(--headerHeight) * -1);
     padding-top: var(--headerHeight);
   }
