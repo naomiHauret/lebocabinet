@@ -9,6 +9,11 @@
       margin-top: calc(var(--headerHeight) * -1);
       padding-top: var(--headerHeight);
     }
+    @supports (scroll-padding-top: var(--headerHeight)) {
+      background: red;
+      margin-top: 0;
+      padding-top: 0;
+    }
   }
   @supports not (scroll-padding-top: var(--headerHeight)) {
     margin-top: calc(var(--headerHeight) * -1);
