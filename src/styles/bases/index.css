@@ -8,9 +8,12 @@
   border-width: 0;
   border-style: solid;
   box-sizing: border-box;
-  font-weight: unset;
-  font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+  font-weight: var(--lebo-ui-fontWeightSetting);
   transition: none;
+  @supports (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
+    font-weight: unset;
+    font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
+  }
 }
 
 html {
@@ -39,6 +42,7 @@ a:not(.cta, .no-underline) {
 }
 
 button {
+  font-weight: var(--lebo-ui-fontWeightSetting);
   cursor: pointer;
   font-family: inherit;
   font-size: 100%;
@@ -79,7 +83,11 @@ button::-moz-focus-inner {
 h1,
 h2,
 h3 {
+  font-weight: var(--lebo-ui-fontWeightSetting);
   @apply font-heading;
+  @supports (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
+    font-weight: unset;
+  }
 }
 
 img,
