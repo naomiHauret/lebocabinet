@@ -10,6 +10,10 @@
       color: pink !important;
       margin-top: calc(var(--headerHeight) * -1);
       padding-top: var(--headerHeight);
+
+      @media(--screen-md) {
+        @apply mt-0 pt-0;  
+      }
     }
   }
   @supports not (scroll-padding-top: var(--headerHeight)) {
