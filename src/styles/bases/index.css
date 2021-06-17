@@ -11,7 +11,7 @@
   font-weight: unset;
   font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
   transition: none;
-  @supports (font-variation-settings: normal) {
+  @supports not (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
     :root {
       background: red;
     }
