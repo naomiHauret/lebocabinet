@@ -20,10 +20,8 @@ html {
   text-rendering: optimizelegibility;
   scroll-padding-top: var(--headerHeight);
   @media not all and (min-resolution: 0.001dpcm) {
-    background: red;
-    @media(--screen-md) {
-      scroll-padding-top: 0 !important;
-    }
+    background: blue;
+    scroll-padding-top: 0 !important;
   }
 }
 
