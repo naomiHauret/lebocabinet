@@ -1,7 +1,6 @@
 {%- from "components/intervention.njk" import intervention -%}
-{%- from "components/cta.njk" import cta -%}
 <section class='pt-5 pb-6 sm:py-7 flex flex-col surface surface-neutral-100'>
-  <div class='container'>
+  {% Container %}
     <h2 id="les-interventions" class='heading-1 anchor-offset text-center'>
       {{ landing.section_interventions_title}}
     </h2>
@@ -16,5 +15,12 @@
     {% endfor %}
     </div>
   </div>
-  {{ cta(landing.section_interventions_cta_label, landing.section_interventions_cta_url.url, 'inline-flex mx-auto')}}
+  {%
+    Cta
+      landing.section_interventions_cta_label,
+      'inline-flex mx-auto',
+      landing.section_interventions_cta_url.url,
+      true
+  %}
+  {% endContainer %}
 </section>

@@ -4,8 +4,8 @@
     And thus avoid the offset
 */
 .anchor-offset {
- @media not all and (min-resolution:.001dpcm) {
-    @supports (-webkit-appearance:none) {
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
       margin-top: calc(var(--headerHeight) * -1);
       padding-top: var(--headerHeight);
     }
@@ -13,6 +13,5 @@
   @supports not (scroll-padding-top: var(--headerHeight)) {
     margin-top: calc(var(--headerHeight) * -1);
     padding-top: var(--headerHeight);
-
   }
 }

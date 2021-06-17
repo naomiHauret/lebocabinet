@@ -1,5 +1,3 @@
-{%- from "components/cta.njk" import cta -%}
-
 {% macro teamMember(isDoctor, data) %}
   <article class='flex space-x-4 md:space-x-0 md:space-y-4 md:flex-col md:items-center'>
     <div class="{% if isDoctor %}h-80 w-80 {% endif %} md:h-150 md:w-150">
@@ -14,7 +12,13 @@
       <p class='font-sbold xs:mb-3'>{{data.display_name}}</p>
       {% asHtml data.biography %}
       {% if isDoctor %}
-        {{ cta(data.cta_label, data.cta_url.url, 'inline-flex mt-3 mx-auto')}}
+        {%
+          Cta
+            data.cta_label,
+            'inline-flex mt-3 mx-auto',
+            data.cta_url.url,
+            true
+        %}
       {% endif %}
     </div>
   </article>

@@ -5,6 +5,9 @@ const fs = require('fs')
 const shortcodes = require('./utils/shortcodes')
 const transforms = require('./utils/transforms')
 const filters = require('./utils/filters')
+const componentsDir = `./src/_includes/components`
+const Cta = require(`${componentsDir}/Cta`)
+const Container = require(`${componentsDir}/Container`)
 
 module.exports = function (config) {
   const manifestPath = path.resolve(__dirname, '_site/manifest.json')
@@ -16,6 +19,10 @@ module.exports = function (config) {
 
   // Filters
   config.addFilter('formatDate', filters.formatDate)
+
+  // ShortComps
+  config.addShortcode('Cta', Cta)
+  config.addPairedShortcode('Container', Container)
 
   // Shortcodes
   config.addNunjucksAsyncShortcode('image', shortcodes.image)

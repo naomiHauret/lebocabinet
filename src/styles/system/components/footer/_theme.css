@@ -1,5 +1,0 @@
-@layer components {
-  .footer {
-    @apply text-9 xs:text-14;
-  }
-}

@@ -13,7 +13,7 @@ const {
 } = require('./src/styles/tokens')
 
 module.exports = {
-  purge: ['./src/styles/**/*.css', './src/**/*.njk'],
+  purge: ['./src/styles/**/*.css', './src/**/*.njk', './src/**/*.js', './src/**/*.json'],
   presets: [],
   darkMode: false, // or 'media' or 'class'
   mode: 'jit',
