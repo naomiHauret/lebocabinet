@@ -11,6 +11,7 @@
   font-weight: var(--lebo-ui-fontWeightSetting);
   transition: none;
   @supports (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
+    font-weight: unset;
     font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting);
   }
 }
@@ -84,7 +85,9 @@ h2,
 h3 {
   font-weight: var(--lebo-ui-fontWeightSetting);
   @apply font-heading;
-
+  @supports (font-variation-settings: 'wght' var(--lebo-ui-fontWeightSetting)) {
+    font-weight: unset;
+  }
 }
 
 img,
