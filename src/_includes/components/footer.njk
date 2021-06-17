@@ -1,5 +1,8 @@
-<footer class='surface surface-neutral-200 text-center footer lg:text-start'>
-  <div class='container py-5 md:py-8 flex items-center flex-col lg:flex-row lg:space-x-5 lg:justify-evenly'>
+<footer class='surface surface-neutral-200 text-center text-9 xs:text-14 lg:text-start'>
+  {%
+    Container
+      'py-5 md:py-8 flex items-center flex-col lg:flex-row lg:space-x-5 lg:justify-evenly'
+  %}
     <div class='flex justify-between items-center space-x-3 lg:space-x-7 xl:space-x-8 md:flex-shrink-0'>
       <a rel="noreferrer noopener" href='https://www.elsan.care/fr/clinique-breteche'>
         <picture class='w-full h-full'>
@@ -40,5 +43,5 @@
         Développé par <a class='font-medium focus:bg-neutral-100 focus:bg-opacity-10' rel="noreferrer noopener" href='https://github.com/naomihauret'>Naomi Hauret</a>
       </div>
     </div>
-  </div>
+  {% endContainer %}
 </footer>

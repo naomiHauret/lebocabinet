@@ -1,7 +1,7 @@
 {%- from "components/teamMember.njk" import teamMember -%}
 
 <section class='pt-5 pb-7 sm:py-7 flex flex-col surface surface-primary'>
-  <div class='container'>
+  {% Container %}
     <h2 id="equipe" class='heading-1 text-center anchor-offset'>
       {{ landing.section_team_title}}
     </h2>
@@ -25,5 +25,5 @@
         {% endfor %}
       </ul>
     </div>
-  </div>
+  {% endContainer %}
 </section>
