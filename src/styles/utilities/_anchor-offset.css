@@ -9,7 +9,7 @@
       margin-top: calc(var(--headerHeight) * -1);
       padding-top: var(--headerHeight);
     }
-    @media(--screen-md) {
+    @media (--screen-md) {
       margin-top: calc(var(--headerHeight) * -1);
       padding-top: var(--headerHeight);
     }

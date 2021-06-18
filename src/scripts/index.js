@@ -25,7 +25,10 @@ window.addEventListener('scroll', () => {
 
 const menuControls = document.querySelectorAll('[data-interactive="menu-control"]')
 const menuTarget = document.querySelector('[data-interactive="menu-fold"]')
-initializeMenu(menuControls, menuTarget)
+const menuOpen = document.querySelector('#open-primary-nav')
+const menuClose = document.querySelector('#close-primary-nav')
+const menuLinks = document.querySelectorAll('a[data-interactive="menu-control"]')
+initializeMenu(menuControls, menuTarget, menuOpen, menuClose, menuLinks)
 
 new Glider(document.querySelector('#carousel'), {
   // Mobile-first defaults
