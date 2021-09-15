@@ -10,16 +10,16 @@
     </div>
     <div id="prendre-rendez-vous" class='anchor-offset'></div>
     <div class='grid grid-cols-1 gap-y-6 divide-y-1 divide-neutral-100 divide-solid mt-4 lg:divide-x-1 lg:divide-y-0 lg:grid-cols-2 gap-x-6'>
-      <ul  class='col-span-1 flex items-center -mt-5 lg:py-5 lg:items-start justify-between md:justify-evenly flex-col space-y-6 md:space-y-0 md:flex-row '>
+      <ul  class='col-span-1 flex items-center -mt-5 lg:pt-5 justify-between md:justify-evenly flex-col space-y-6 md:space-y-0 md:flex-row '>
         {% for data in landing.section_team_doctors_list %}
           <li>
             {{ teamMember(true, data) }}
           </li>
         {% endfor %}
       </ul>
-      <ul class='col-span-1 sr-only justify-between md:justify-evenly md:py-6 lg:pis-6 lg:py-5 md:not-sr-only md:flex md:space-y-0'>
+      <ul class='col-span-1 sr-only md:grid md:not-sr-only md:grid-cols-2 md:py-6 lg:pis-6 lg:py-5 gap-y-7'>
         {% for data in landing.section_team_admins_list %}
-          <li>
+          <li class='col-span-1'>
             {{ teamMember(false, data) }}
           </li>
         {% endfor %}
