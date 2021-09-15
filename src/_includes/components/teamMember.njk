@@ -4,7 +4,9 @@
       <picture class='w-full h-full rounded-full overflow-hidden'>
         <source media="(max-width: 575px)" srcset="{{ data.picture.url}}">
         <source media="((min-width: 576px) and (max-width: 1023px))" srcset="{{data.picture.md.url}}">
+        {% if isDoctor %}
         <source media="(min-width: 1024px)" srcset="{{data.picture.lg.url}}">
+        {% endif %}}
         <img class='w-full h-full object-cover' height='{{data.picture.dimensions.height}}' width='{{data.picture.dimensions.width}}' loading='lazy' src="{{data.picture.url}}" alt="">
       </picture>
     </div>
