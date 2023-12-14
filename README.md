@@ -1,3 +1,21 @@
+# LeBo Cabinet: one-page built with Astro and Prismic
+
+> This is a rewrite of the original one-page built with Eleventy. [Code of the previous version is available on this branch](https://github.com/naomiHauret/lebocabinet/tree/v1/eleventy).
+
+## Pre-requisites
+- `node` version >= `18.17.1` ;
+- `bun` installed ;
+
+##  Tech stack
+- Headless CMS: Prismic
+- Static site generator: Astro
+- Styling: TailwindCSS
+- Interactive map: Leaflet + OpenStreetMaps
+
+---
+
+This repo was bootstraped with Astro Starter kit.
+
 # Astro Starter Kit: Minimal
 
 ```sh
