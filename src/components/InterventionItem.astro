@@ -1,0 +1,34 @@
+---
+import * as prismic from '@prismicio/helpers'
+
+const { name, icon, description } = Astro.props
+---
+
+<article class="rich-text lg:leading-[1.2] flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+  <div class="self-center sm:self-start sm:h-auto sm:min-w-[35px]">
+    <img
+      height={icon.dimensions.height}
+      width={icon.dimensions.width}
+      class="sm:w-full sm:h-auto"
+      src={icon.url}
+      alt=""
+    />
+  </div>
+  <div>
+    <h3
+      class="text-center sm:text-start text-[1.5rem] sm:text-[1.75rem] text-lg font-bold text-primary-500 uppercase anchor-offset"
+    >
+      {name}
+    </h3>
+    <div
+      class="font-regular xl:text-sm [&_a]:underline hover:[&_a]:no-underline focus:[&_a]:no-underline [&_a]:text-primary-500 focus:[&_a]:text-primary-600 font-light text-neutral-900"
+    >
+      <Fragment set:html={prismic.asHTML(description)} />
+    </div>
+  </div>
+</article>
+<style>
+  .rich-text ul {
+    @apply list-dashed;
+  }
+</style>

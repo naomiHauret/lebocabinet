@@ -1,51 +1,25 @@
 # build output
-/out/
-_site/
-.cache/
+dist/
+# generated types
+.astro/
 
-# dotenv environment variables file (build for Zeit Now)
-.env
-.env.build
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-firebase.private.json
-
-# dependency directories
+# dependencies
 node_modules/
-/.pnp
-.pnp.js
 
 # logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# testing
-/coverage
 
-# vs code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
+# environment variables
+.env
+.env.production
 
-# local History for Visual Studio Code
-.history/
+# macOS-specific files
+.DS_Store
 
-# misc
-.DS_*
-*.log
-*.pem
-logs
-**/*.backup.*
-**/*.back.*
-*.sublime*
-psd
-thumb
-sketch
+.vscode
+.netlify
 .vercel
-.idea
