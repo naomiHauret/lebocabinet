@@ -1,0 +1,37 @@
+---
+import * as prismic from '@prismicio/helpers'
+
+const {
+  data: { section_clinic_title, section_clinic_text, clinic_geocoordinates },
+} = Astro.props
+---
+
+<section>
+  <h2
+    id="clinic"
+    class="text-[1.625rem] text-primary-500 pb-4 font-black uppercase anchor-offset text-center anchor-offset"
+  >
+    {section_clinic_title}
+  </h2>
+  <div
+    class="font-regular xl:text-sm [&_a]:underline hover:[&_a]:no-underline focus:[&_a]:no-underline [&_a]:text-primary-500 focus:[&_a]:text-primary-600 font-light text-neutral-900"
+  >
+    <Fragment set:html={prismic.asHTML(section_clinic_text)} />
+  </div>
+  <div
+    class="mx-[-100vw] relative z-0 px-[100vw] bg-neutral-300 xl:px-[unset] xl:mx-[unset] my-6 xl:mb-0 h-[215px] 2xs:h-[250px] xs:h-[300px] sm:h-[350px] lg:h-[450px]"
+    data-latitude={clinic_geocoordinates.latitude}
+    data-longitude={clinic_geocoordinates.longitude}
+    id="clinic-map"
+  >
+  </div>
+</section>
+<script>
+  const mapElement = document.querySelector('#clinic-map') as HTMLDivElement
+  const coordinates = [mapElement.dataset.latitude, mapElement.dataset.longitude]
+  const map = L.map(mapElement).setView(coordinates, 16)
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map)
+  L.marker(coordinates).addTo(map)
+</script>

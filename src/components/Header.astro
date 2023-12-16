@@ -1,0 +1,180 @@
+---
+const { data } = Astro.props
+---
+
+<header
+  data-interactive="navbar"
+  class="[&.shadow-header_.logo]:lg:shadow-header transition-all lg:max-h-24 z-50 sticky start-0 top-[-1px] w-full py-[0.35rem] xs:py-3 lg:py-0 bg-neutral-100"
+>
+  <div class="relative">
+    <div class="w-full mx-auto px-5 xl:px-7 max-w-screen-lg lg:max-w-screen-2xl flex">
+      <a href="/" class="h-[fit-content] shrink-0 lg:me-8 logo">
+        <svg
+          aria-hidden="true"
+          class="w-12 xs:w-[4.375rem] lg:w-[7.5rem] h-12 xs:h-[4.375rem] lg:h-[7.5rem] max-w-9 xs:max-w-[4.375rem] lg:max-w-[7.5rem]"
+          ><image class="w-full" xlink:href={data.header_logo.url} /></svg
+        >
+        <span class="sr-only">LeBo Cabinet</span>
+      </a>
+      <div class="flex lg:max-h-24 lg:py-3 xl:py-5 flex-grow justify-between items-center">
+        <div
+          id="primary-nav"
+          data-interactive="menu-fold"
+          aria-expanded="false"
+          class="menu-fold aria-[expanded=false]:hidden lg:aria-[expanded=false]:block aria-[expanded=true]:block aria-[expanded=false]:-translate-y-full lg:aria-[expanded=false]:translate-y-0 aria-[expanded=true]:translate-y-0 z-50 transition-all w-full overflow-y-auto min-h-screen inset-0 bg-neutral-100 lg:bg-transparent absolute lg:w-auto lg:min-h-[unset] lg:static lg:block lg:flex-shrink-0"
+        >
+          <div
+            class="w-full mx-auto px-5 xl:px-7 xs:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg xl:max-w-screen-xl xxl:max-w-screen-xxl 3xl:max-w-screen-3xl 4xl:max-w-screen-4xl pt-3 relative flex lg:hidden"
+          >
+            <span class="font-black uppercase text-primary-500 mx-auto"> Menu</span>
+            <button
+              class="border border-primary-500 hover:border-primary-600 focus:border-primary-600
+                        text-primary-500 hover:text-neutral-100 focus:text-neutral-100
+                        bg-neutral-100 hover:bg-primary-600 focus:bg-primary-600
+                        transition-all leading-tight xs:leading-loose font-semibold
+                         px-[1.5ch] py-[0.5ex] rounded-full
+                         absolute end-5 top-3 ms-auto"
+              aria-controls="primary-nav"
+              data-interactive="menu-control"
+              id="close-primary-nav"
+              type="button"
+            >
+              Retour
+            </button>
+          </div>
+          <nav class="flex lg:h-full lg:max-h-24 lg:py-3 xl:py-5 flex-grow justify-between items-center">
+            <ul
+              class="w-full text-center lg:text-start pt-7 space-y-6 lg:pt-0 lg:space-y-0 lg:justify-evenly lg:space-x-6 text-base overflow-hidden font-normal flex flex-col lg:flex-row lg:text-sm"
+            >
+              {
+                Object.keys(data)
+                  .filter((data) => data.includes('navigation_menu_label_'))
+                  .map((item) => {
+                    return (
+                      <li>
+                        <a
+                          aria-controls="primary-nav"
+                          data-interactive="menu-control"
+                          class="uppercase underline focus:no-underline lg:no-underline lg:normal-case font-semibold text-primary-500 hover:text-primary-600  focus:text-primary-600"
+                          href={`${item.replace('navigation_menu_label_', '#')}`}
+                        >
+                          {data[item]}
+                        </a>
+                      </li>
+                    )
+                  })
+              }
+            </ul>
+          </nav>
+        </div>
+
+        <a
+          class="font-semibold border-transparent leading-[1.75] text-base px-[1.5ch] py-[0.5ex] md:py-[0.5em] md:px-[1.5em] bg-primary-500 text-neutral-100 hover:bg-primary-600 focus:bg-primary-600 focus:ring-2 focus:ring-offset-4 border focus:transition-all active:transition-all hover:transition-all relative rounded-full shrink-0 inline-flex ms-auto me-2.5 lg:mx-0"
+          href="#team"
+          ><span class="sr-only xs:not-sr-only">Prendre&nbsp;</span>
+          <span class="capitalize xs:normal-case">rendez-vous</span></a
+        >
+        <button
+          title="Ouvrir le menu de navigation"
+          class="h-full xs:h-[fit-content] items-center font-semibold leading-[1.75] text-base px-[1.5ch] py-[0.5ex] md:py-[0.5em] md:px-[1.5em] border-primary-500 bg-neutral-100 text-primary-500 hover:text-neutral-100 focus:text-neutral-100 focus:border-primary-600 hover:border-primary-600 hover:bg-primary-600 focus:bg-primary-600 focus:ring-2 focus:ring-offset-4 border focus:transition-all active:transition-all hover:transition-all relative rounded-full shrink-0 inline-flex lg:hidden"
+          aria-controls="primary-nav"
+          data-interactive="menu-control"
+          id="open-primary-nav"
+        >
+          <span class="sr-only xs:not-sr-only">Menu</span>
+          <svg
+            class="xs:hidden text-lg"
+            fill="currentColor"
+            stroke-width="0"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            style="overflow: visible; color: currentcolor;"
+            height="1em"
+            width="1em"><path fill="currentColor" d="M3 4h18v2H3V4Zm0 7h18v2H3v-2Zm0 7h18v2H3v-2Z"></path></svg
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Accessible menu
+  function initializeMenu(
+    listControls: NodeListOf<Element>,
+    target: HTMLDivElement,
+    openControl: HTMLButtonElement,
+    closeControl: HTMLButtonElement,
+    links: NodeListOf<HTMLAnchorElement>,
+  ) {
+    const firstFocusableEl = closeControl
+    const lastFocusableEl = links[links.length - 1]
+
+    document.addEventListener('keydown', (e) => {
+      const isFoldVisible = target.getAttribute('aria-expanded') === 'true'
+      const KEYCODE_ESCAPE = 27
+      const KEYCODE_TAB = 9
+
+      if (isFoldVisible) {
+        // On escape pressed, close the menu
+        if (e.keyCode === KEYCODE_ESCAPE || +e.key === KEYCODE_ESCAPE) {
+          target.setAttribute('aria-expanded', 'false')
+          openControl.focus()
+        }
+
+        // If tab or shift + tab is pressed
+        if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
+          if (e.shiftKey) {
+            // 'Reverse' tab
+            if (document.activeElement === firstFocusableEl) {
+              // If the current focused element is the first element of the navigation,
+              // Focus the last element of the nav
+              lastFocusableEl.focus()
+              e.preventDefault()
+            }
+          } else {
+            // 'Regular' tab
+            if (document.activeElement === lastFocusableEl) {
+              // If the current focused element is the first element of the navigation,
+              // Focus the first element of the nav (close button)
+              firstFocusableEl.focus()
+              e.preventDefault()
+            }
+          }
+        }
+      }
+    })
+
+    listControls.forEach((item) => {
+      item.addEventListener('click', () => {
+        const isFoldVisible = target.getAttribute('aria-expanded') === 'true'
+        if (isFoldVisible) {
+          target.setAttribute('aria-expanded', 'false')
+          openControl.focus()
+        } else {
+          target.setAttribute('aria-expanded', 'true')
+          closeControl.focus()
+        }
+      })
+    })
+  }
+
+  const menuControls = document.querySelectorAll('[data-interactive="menu-control"]') as NodeListOf<Element>
+  const menuTarget = document.querySelector('[data-interactive="menu-fold"]') as HTMLDivElement
+  const menuOpen = document.querySelector('#open-primary-nav') as HTMLButtonElement
+  const menuClose = document.querySelector('#close-primary-nav') as HTMLButtonElement
+  const menuLinks = document.querySelectorAll('a[data-interactive="menu-control"]') as NodeListOf<HTMLAnchorElement>
+  initializeMenu(menuControls, menuTarget, menuOpen, menuClose, menuLinks)
+
+  // Toggle shadow on scroll
+  const navbar = document.querySelector('[data-interactive="navbar"]') as Element
+  window.addEventListener('scroll', () => {
+    const scroll = document.documentElement.scrollTop
+    const classname = 'shadow-header'
+    if (scroll > 20) {
+      navbar.classList.add(classname)
+    } else {
+      navbar.classList.remove(classname)
+    }
+  })
+</script>

@@ -1,0 +1,13 @@
+---
+import { clientPrismic } from '../features/cms/prismic'
+
+const home = await clientPrismic.getSingle('homepage')
+---
+
+<nav>
+  {
+    Object.keys(home.data)
+      .filter((item) => item.includes('navigation_menu'))
+      .map((el) => <li>{home.data[el]}</li>)
+  }
+</nav>

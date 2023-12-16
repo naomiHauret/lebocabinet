@@ -1,0 +1,107 @@
+---
+import * as prismic from '@prismicio/helpers'
+const { data } = Astro.props
+const {
+  contact_email,
+  contact_phone_number,
+  footer_label_contact_us,
+  instagram_link_label,
+  logo_bretegne_clinic,
+  instagram_url,
+  footer_disclaimer,
+  header_logo,
+} = data
+---
+
+<footer class="mt-auto bg-neutral-900 text-neutral-100 text-center sm:text-sm lg:text-start">
+  <div
+    class="w-full mx-auto px-5 xl:px-7 max-w-screen-lg lg:max-w-screen-2xl py-5 md:py-14 flex items-center flex-col lg:grid lg:grid-cols-4 2xl:flex xl:flex-row lg:space-x-5 lg:justify-evenly"
+  >
+    <div class="flex justify-between items-center space-x-3 lg:space-x-7 lg:flex-shrink-0">
+      <a target="_blank" rel="noreferrer noopener" href="https://www.elsan.care/fr/clinique-breteche">
+        <picture class="w-full h-full">
+          <source media="(max-width: 575px)" srcset={logo_bretegne_clinic.url} />
+          <source media="(min-width: 576px)" srcset={logo_bretegne_clinic.lg.url} />
+          <img
+            class="w-full h-auto"
+            height={logo_bretegne_clinic.dimensions.height}
+            width={logo_bretegne_clinic.dimensions.width}
+            loading="lazy"
+            src={logo_bretegne_clinic.url}
+            alt=""
+          />
+        </picture>
+        <span class="sr-only">Clinique Brétéché</span>
+      </a>
+      <a class="max-w-[3rem] lg:max-w-[4.375rem] xl:max-w-[5.95rem]" href="/">
+        <svg aria-hidden="true" class="w-16 h-16 lg:w-[4.375rem] lg:h-[4.375rem] xl:w-[5.65rem] xl:h-[5.65rem]">
+          <image class="w-full" xlink:href={header_logo.url} />
+        </svg>
+        <span class="sr-only">LeBo Cabinet - cabinet des docteurs Florence Lejeune et Anne-Laure Bouffaut</span>
+      </a>
+    </div>
+    <address class="pt-5 md:pt-6 lg:pt-0 not-italic flex flex-col space-y-4 sm:text-sm">
+      <span>{footer_label_contact_us}</span>
+      <a
+        target="_blank"
+        rel="noreferrer noopener"
+        class="font-semibold underline hover:no-underline focus:no-underline focus:bg-neutral-100 focus:bg-opacity-10"
+        href={`mailto:${contact_email}`}
+      >
+        {contact_email}
+      </a>
+      <a
+        target="_blank"
+        class="font-semibold underline hover:no-underline focus:no-underline focus:bg-neutral-100 focus:bg-opacity-10"
+        rel="noreferrer noopener"
+        href={`tel:${contact_phone_number}`}
+        '
+      >
+        {contact_phone_number}
+      </a>
+    </address>
+    <div class="py-6 lg:ps-[2.5ex] xl:ps-0">
+      <a
+        target="_blank"
+        class="text-center lg:text-left no-underline flex flex-col xs:flex-row gap-y-[1ch] items-center focus:bg-neutral-100 focus:bg-opacity-10"
+        rel="noreferrer noopener"
+        href={instagram_url.url}
+      >
+        <svg
+          aria-hidden="true"
+          class="flex-shrink-0 w-7 h-7 lg:w-5 lg:h-5 xl:w-7 xl:h-7 me-3"
+          focusable="false"
+          role="img"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          ><path
+            fill="currentColor"
+            d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+            class=""></path></svg
+        >
+        <span>{instagram_link_label}</span>
+      </a>
+    </div>
+
+    <div class="space-y-3">
+      <div class="[&_a]:font-medium [&_a]:underline [&_a]:hover:no-underline [&_a]:focus:no-underline">
+        <Fragment set:html={prismic.asHTML(footer_disclaimer)} />
+      </div>
+      <div>
+        Réalisé par <a
+          class="font-medium underline hover:no-underline focus:no-underline focus:bg-neutral-100 focus:bg-opacity-10"
+          rel="noreferrer noopener"
+          target="_blank"
+          href="https://lucasjouin.com">Lucas Jouin</a
+        >
+        <br />
+         Développé par <a
+          class="font-medium underline hover:no-underline focus:no-underline focus:bg-neutral-100 focus:bg-opacity-10"
+          rel="noreferrer noopener"
+          target="_blank"
+          href="https://github.com/naomihauret">Naomi Hauret</a
+        >
+      </div>
+    </div>
+  </div>
+</footer>

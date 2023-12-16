@@ -1,0 +1,68 @@
+---
+import { clientPrismic } from '../features/cms/prismic'
+import '../base.css'
+import Header from './../components/Header.astro'
+import Footer from './../components/Footer.astro'
+import Team from './../components/Team.astro'
+import Practice from '../components/Practice.astro'
+import Interventions from '../components/Interventions.astro'
+import Clinic from '../components/Clinic.astro'
+import Reviews from '../components/Reviews.astro'
+
+const home = await clientPrismic.getSingle('homepage')
+const { header_logo, seo_title, seo_meta_description, seo_name, favicon } = home.data
+---
+
+<html class="bg-neutral-100 h-full overflow-x-hidden subpixel-antialiased font-sans" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>{seo_title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={seo_meta_description} />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta property="og:title" content={seo_title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lebocabinet.com" />
+    <meta property="og:image" content={header_logo.lg.url} />
+    <meta property="og:site_name" content={seo_name} />
+    <meta property="og:description" content={seo_meta_description} />
+    <link rel="canonical" href="https://lebocabinet.com" />
+    <link rel="icon" type="image/svg+xml" href={favicon.url} />
+    <link rel="icon" type="image/png" href={favicon.url} sizes="16x16" />
+    <link rel="icon" type="image/png" href={favicon.taskbar_shortcut.url} sizes="32x32" />
+    <link rel="icon" type="image/png" href={favicon.desktop_shortcut.url} sizes="96x96" />
+    <link
+      rel="preload"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+  </head>
+  <body class="flex flex-col min-h-screen relative">
+    <Header data={home.data} />
+    <Practice data={home.data} />
+    <Interventions data={home.data} />
+    <Team data={home.data} />
+    <div class="w-full max-w-[100vw] sm:max-w-[unset] overflow-x-hidden bg-neutral-100">
+      <div
+        class="w-full px-5 xl:px-7 max-w-screen-lg xl:max-w-screen-2xl grid grid-cols-1 xl:gap-x-10 xl:grid-cols-2 pt-5 pb-6 sm:py-7 mx-auto"
+      >
+        <div class="col-span-1">
+          <Clinic data={home.data} />
+        </div>
+        <div class="col-span-1 xl:ps-10">
+          <Reviews data={home.data} />
+        </div>
+      </div>
+    </div>
+
+    <Footer data={home.data} />
+  </body>
+</html>

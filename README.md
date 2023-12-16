@@ -1,16 +1,65 @@
-# LeBo Cabinet : a Prismic + 11ty landing page
+# LeBo Cabinet: one-page built with Astro and Prismic
+
+> This is a rewrite of the original one-page built with Eleventy. [Code of the previous version is available on this branch](https://github.com/naomiHauret/lebocabinet/tree/v1/eleventy).
+
 ## Pre-requisites
-* `node` version >= 12
-* `npm` version >= 6
+- `node` version >= `18.17.1` ;
+- `bun` installed ;
 
-## Commands
-* `npm run prepare`: install dependencies + setup git hooks
-* `npm start`: run the project
-* `npm run format`: format JS + CSS
+##  Tech stack
+- Headless CMS: Prismic
+- Static site generator: Astro
+- Styling: TailwindCSS
+- Interactive map: Leaflet + OpenStreetMaps
 
-## Tech stack
-* Headless CMS: Prismic
-* Static site generator: Eleventy
-* Styling: TailwindCSS
-* Interactions: AlpineJS
-* Interactive map: Leaflet + OpenStreetMaps
+---
+
+This repo was bootstraped with Astro Starter kit.
+
+# Astro Starter Kit: Minimal
+
+```sh
+npm create astro@latest -- --template minimal
+```
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
+
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

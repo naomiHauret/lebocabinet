@@ -1,0 +1,35 @@
+---
+import * as prismic from '@prismicio/helpers'
+
+const {
+  isDoctor,
+  data: { picture, display_name, biography, cta_url, cta_label },
+} = Astro.props
+---
+
+<article
+  class={`flex space-x-4 md:space-x-0 ${isDoctor ? 'md:space-y-6' : 'md:space-y-4'} md:flex-col md:items-center`}
+>
+  <div class={`${isDoctor ? 'h-[80px] w-[80px] md:h-[150px] md:w-[150px]' : 'md:h-[100px] md:w-[100px]'}`}>
+    <img
+      src={picture.url}
+      srcset={`${picture.url} 320w, ${picture.md.url} 576w${isDoctor ? `, ${picture.lg.url} 1024w` : ''}`}
+      alt={`Photo de ${display_name}`}
+      loading="lazy"
+    />
+  </div>
+  <div class="lg:text-sm font-light xs:text-center">
+    <p class={`font-semibold ${isDoctor ? 'xs:mb-3 md:mb-5' : ''}`}>{display_name}</p>
+    <Fragment set:html={prismic.asHTML(biography)} />
+    {
+      isDoctor && (
+        <a
+          class="inline-flex text-center mx-auto font-semibold border-transparent leading-[1.75] text-base px-[1.5ch] py-[0.5ex] md:py-[0.5em] md:px-[1.5em] bg-neutral-100 text-primary-500 hover:bg-opacity-95 focus:bg-primary-600 focus:ring-2 focus:hover:text-neutral-100 focus:text-neutral-100 focus:ring-offset-4 border focus:transition-all active:transition-all hover:transition-all relative rounded-full shrink-0 mt-3 md:mt-6"
+          href={cta_url.url}
+        >
+          {cta_label}
+        </a>
+      )
+    }
+  </div>
+</article>

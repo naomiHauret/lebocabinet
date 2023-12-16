@@ -1,0 +1,73 @@
+@font-face {
+  src: url('/Montserrat-VF.woff2') format('woff2');
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400 800;
+  font-named-instance: 'Regular';
+}
+@font-face {
+  src: url('/Montserrat-Italic-VF.woff2') format('woff2');
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400 800;
+  font-named-instance: 'Italic';
+}
+
+:root {
+  --wght: 400;
+  --headerHeight: theme('spacing.28');
+}
+/*
+    Because the header is sticky, anchors have an offset.
+    Hence the following utility class to negate the header width
+    And thus avoid the offset
+*/
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
+  scroll-padding-top: var(--headerHeight);
+  @media not all and (min-resolution: 0.001dpcm) {
+    scroll-padding-top: 0;
+  }
+}
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    .anchor-offset {
+      margin-top: calc(var(--headerHeight) * -1);
+      padding-top: var(--headerHeight);
+    }
+  }
+  @media (min-width: 1024px) {
+    .anchor-offset {
+      margin-top: calc(var(--headerHeight) * -1);
+      padding-top: var(--headerHeight);
+    }
+  }
+}
+
+@supports not (scroll-padding-top: var(--headerHeight)) {
+  .anchor-offset {
+    margin-top: calc(var(--headerHeight) * -1);
+    padding-top: var(--headerHeight);
+  }
+}
+
+.glider-track {
+  @apply h-full w-full;
+}
+
+.carousel_dots .glider-dot {
+  @apply transition-all w-5 h-5 lg:w-3 lg:h-3 bg-neutral-100 bg-opacity-25 p-0 m-0;
+}
+
+.carousel_dots .glider-dot.active {
+  @apply bg-opacity-100 bg-neutral-100;
+}
+
+.glider-slide {
+  @apply m-auto xl:m-0;
+}

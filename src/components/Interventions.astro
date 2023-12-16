@@ -1,0 +1,49 @@
+---
+import * as prismic from '@prismicio/helpers'
+import InterventionItem from './InterventionItem.astro'
+
+const {
+  data: {
+    section_interventions_title,
+    section_interventions_text,
+    interventions_list,
+    section_interventions_cta_label,
+    section_interventions_cta_url,
+  },
+} = Astro.props
+---
+
+<div class="pt-5 pb-6 sm:py-7 flex flex-col bg-neutral-100">
+  <div class="w-full px-5 mx-auto xl:px-7 max-w-screen-lg xl:max-w-screen-2xl">
+    <h2 id="interventions" class="text-[1.625rem] text-primary-500 pb-4 font-black uppercase anchor-offset text-center">
+      {section_interventions_title}
+    </h2>
+    <div class="xl:text-sm sm:w-3/4 lg:w-1/2 xs:mx-auto text-primary-500 text-center">
+      <Fragment set:html={prismic.asHTML(section_interventions_text)} />
+    </div>
+    <div
+      class="space-y-5 [&>.inside-avoid]:last:pb-5 pb-6 sm:pb-7 md:column-gap-8 lg:column-gap-10 md:column-2 pt-6 xs:pt-7 md:pt-8 text-neutral-900 lg:text-sm"
+    >
+      {
+        interventions_list.map((intervention) => (
+          <div class="inside-avoid">
+            {' '}
+            <InterventionItem {...intervention} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <a
+    class="inline-flex mx-auto font-semibold border-transparent leading-[1.75] text-base px-[1.5ch] py-[0.5ex] md:py-[0.5em] md:px-[1.5em] bg-primary-500 text-neutral-100 hover:bg-primary-600 focus:bg-primary-600 focus:ring-2 focus:ring-offset-4 border focus:transition-all active:transition-all hover:transition-all relative rounded-full shrink-0"
+    href={section_interventions_cta_url.url}
+  >
+    {section_interventions_cta_label}
+  </a>
+</div>
+
+<style>
+  .inside-avoid {
+    break-inside: avoid;
+  }
+</style>

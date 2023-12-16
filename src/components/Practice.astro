@@ -1,0 +1,86 @@
+---
+import * as prismic from '@prismicio/helpers'
+import 'glider-js/glider.min.css'
+
+const {
+  data: { section_office_title, section_office_text, section_office_emphasis_text, section_office_images_carousel },
+} = Astro.props
+---
+
+<section class="relative text-neutral-100 bg-primary-500 flex flex-col xl:flex-row">
+  <div class="py-6 xl:pb-8 w-full px-5 xl:px-7 max-w-screen-lg xl:max-w-screen-2xl mx-auto">
+    <div class="w-full xl:w-1/2 xl:ps-12 xl:ms-auto">
+      <h2 id="office" class="text-[1.5rem] sm:text-[1.75rem] pb-4 font-black uppercase anchor-offset">
+        {section_office_title}
+      </h2>
+      <div class="xl:text-sm">
+        <Fragment set:html={prismic.asHTML(section_office_text)} />
+        <a class="block underline hover:no-underline focus:no-underline font-medium pt-5" href="#">
+          {section_office_emphasis_text}
+        </a>
+      </div>
+    </div>
+  </div>
+  <section class="z-10 xl:absolute xl:inline-start-0 xl:top-0 h-full xl:w-1/2">
+    <h3 class="sr-only">Photos du cabinet des docteurs Florence Lejeune et Anne-Laure Bouffaut</h3>
+    <div class="aspect-square xs:aspect-video glider-contain h-full w-full relative">
+      <div class="glider overflow-x-hidden h-full w-full" id="carousel">
+        {
+          section_office_images_carousel.map((slide, index) => {
+            return (
+              <div class="!h-full !w-full">
+                <img
+                  src={slide.image.url}
+                  srcset={`${slide.image.url} 320w, ${slide.image.xs.url} 576w, ${slide.image.lg.url} 840w`}
+                  alt=""
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  class="h-full w-full object-cover"
+                />
+              </div>
+            )
+          })
+        }
+      </div>
+      <button
+        class="aspect-square flex items-center justify-start min-w-[48px] carousel_control-prev start-4 absolute z-20 top-1/2 transform -translate-y-1/2"
+      >
+        <svg class="w-2 xs:w-4" viewBox="0 0 19 45" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M16.349.594a1.46 1.46 0 012.067-.289c.611.471.76 1.332.364 1.982l-.08.12L3.705 22.5 18.7 42.593a1.518 1.518 0 01-.175 2.01l-.109.092a1.458 1.458 0 01-1.976-.177l-.091-.111L0 22.5 16.349.594z"
+            fill="currentColor"></path></svg
+        >
+        <span class="sr-only">Image précédente</span>
+      </button>
+      <button
+        class="aspect-square min-w-[48px] flex items-center justify-end carousel_control-next end-4 absolute z-20 top-1/2 transform -translate-y-1/2"
+      >
+        <svg class="w-2 xs:w-4" viewBox="0 0 19 45" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+          ><path
+            d="M2.651.594A1.46 1.46 0 00.584.305 1.517 1.517 0 00.22 2.287l.08.12L15.295 22.5.3 42.593a1.518 1.518 0 00.175 2.01l.109.092a1.458 1.458 0 001.976-.177l.091-.111L19 22.5 2.651.594z"
+            fill="currentColor"></path></svg
+        >
+        <span class="sr-only">Image suivante</span>
+      </button>
+      <div role="tablist" class="carousel_dots space-x-2 bottom-4 absolute z-20 start-1/2 transform -translate-x-1/2">
+      </div>
+    </div>
+  </section>
+</section>
+
+<script>
+  import Glider from 'glider-js/glider'
+
+  new Glider(document.querySelector('#carousel'), {
+    // Mobile-first defaults
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    scrollLock: true,
+    draggable: true,
+    rewind: true,
+    dots: '.carousel_dots',
+    arrows: {
+      prev: '.carousel_control-prev',
+      next: '.carousel_control-next',
+    },
+  })
+</script>
